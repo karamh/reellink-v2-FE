@@ -40,8 +40,22 @@ const Home = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        document.getElementById("load-container").classList.remove("none")
+        document.getElementById("load-container").classList.add("flex")
+        
         const data = new FormData(event.target);
+        // console.log(data.get('Model').size > 0)
+
+        if(!data.get('Model').size > 0){
+            setMessage(`Please Upload a File`)
+            document.getElementById("message_wrapper").classList.remove("none")
+            document.getElementById("message_wrapper").classList.add("flex")
+
+            document.getElementById("load-container").classList.remove("flex")
+            document.getElementById("load-container").classList.add("none")
+
+            return
+        }
     
         const response = await fetch('https://reellink-v2.onrender.com/', {
         method: 'POST',
@@ -54,10 +68,16 @@ const Home = () => {
             setMessage(modelData.Message)
             document.getElementById("message_wrapper").classList.remove("none")
             document.getElementById("message_wrapper").classList.add("flex")
+
+            document.getElementById("load-container").classList.remove("flex")
+            document.getElementById("load-container").classList.add("none")
         } else {
             setMessage(`https://reellink.netlify.app/${modelData.Message}`)
             document.getElementById("message_wrapper").classList.remove("none")
             document.getElementById("message_wrapper").classList.add("flex")
+
+            document.getElementById("load-container").classList.remove("flex")
+            document.getElementById("load-container").classList.add("none")
         }
     }
     return <>
@@ -102,6 +122,10 @@ const Home = () => {
                 </a>
             </div>
         </main>
+        <div id="load-container" className="none">
+            <div className="outer-ring">
+            </div>
+        </div>
     </>;
   };
   

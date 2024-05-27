@@ -218,6 +218,44 @@ h1{
   font-weight: normal;;
 }
 
+#load-container {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.outer-ring {
+  color: #fff;
+  position: relative;
+  border-radius: 50%;
+  border: 10px solid #eee;
+  border-top: 10px solid #8C52FF;
+  z-index: 1000;
+  width: 100px;
+  height: 100px;
+  box-shadow: 1px rgba(0, 0, 0, 0.2);
+  animation: spiner 1s infinite linear;
+}
+
+@keyframes spiner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .details-wrapper > h2, h4, h6, button{
     margin: 6px 0;

@@ -57,7 +57,9 @@ const View = () => {
         <Canvas flat linear>
           <OrbitControls />
           <ambientLight intensity={20} />
-          <directionalLight intensity={20} />
+          <directionalLight intensity={14} position={[2.5, 8, 5]}/>
+          <directionalLight intensity={14} position={[2.5, 8, -5]}/>
+          <directionalLight intensity={10} position={[0, -8, 0]}/>
           <Suspense fallback={null}>
             <Center>
               <Resize scale={3}>
